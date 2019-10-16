@@ -1,3 +1,7 @@
+PREREQUISITE
+-------------------------
+The code in MLIndex.py is written/developed in python3.7 . 
+
 SMS Spam Collection v.1
 -------------------------
 
@@ -37,6 +41,6 @@ We have used the SMS Spam Collection Dataset for Testing and Training our classi
 3. ABOUT
 --------
 
-The corpus has been collected by Gåmez Hidalgo, J.M., Yamakami, A. Contributions to the Study of SMS Spam Filtering: New Collection and Results. Proceedings of the 2011 ACM Symposium on Document Engineering (DOCENG'11), Mountain View, CA, USA, 2011.
+The corpus has been collected by Gï¿½mez Hidalgo, J.M., Yamakami, A. Contributions to the Study of SMS Spam Filtering: New Collection and Results. Proceedings of the 2011 ACM Symposium on Document Engineering (DOCENG'11), Mountain View, CA, USA, 2011.
 
 We would like to thank Vivek Chutke (https://www.kaggle.com/vivekchutke/spam-ham-sms-dataset) for making the NUS SMS Corpus available.
