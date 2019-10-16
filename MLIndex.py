@@ -21,6 +21,7 @@ from sklearn.svm import SVC
 from sklearn.tree import DecisionTreeClassifier
 import matplotlib.pyplot as plt
 from sklearn.naive_bayes import MultinomialNB
+from sklearn.linear_model import LogisticRegression, SGDClassifier
 
 # Code used for the Data Cleansing activity
 def data_cleanse(main_text_messages):
@@ -103,6 +104,15 @@ def DTree(training,testing):
     accuracy = nltk.classify.accuracy(model, testing)*100
     print("DTree Accuracy with maximum entropy: {}".format(accuracy))
     
+# Classifier for Logistic Regression a.k.a Maximum entropy
+def LRClassification(training,testing):
+    model = SklearnClassifier(LogisticRegression(solver='lbfgs'))
+    # train the model on the training data
+    model.train(training)
+    # and test on the testing dataset!
+    accuracy = nltk.classify.accuracy(model, testing)*100
+    print("Logistic Regression AKA MaxEnt: {}".format(accuracy))
+    
 # load the dataset of SMS messages
 # opening a file handler for reading a csv file contents into the memory for processing 
 filehandler = pandas.read_csv('SMSSPamCollection',sep="\t", header=None, encoding='utf-8')
@@ -136,3 +146,4 @@ print("Testing Dataset:"+str(len(testing)))
 # Call classifier for NB
 NBClassifier(training , testing)
 DTree(training , testing)
+LRClassification(training, testing)
