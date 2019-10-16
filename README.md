@@ -17,7 +17,7 @@ The SMS Spam Collection is a set of SMS Text messages that have been collected f
 
 There is one collection:
 
-- The SMS Spam Collection v.1 (text file: SMSSpamCollection) has a total of 4,827 SMS HAM SMS's (86.6%) and a total of 747 (13.4%) SPAM SMS's.
+- The SMS Spam Collection v.1 (text file: SMSSpamCollection) has a total of 4,179 SMS HAM SMS's (75%) and a total of 1,393 (25%) SPAM SMS's.
 
 
 1.b. FORMAT
