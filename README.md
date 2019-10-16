@@ -1,6 +1,8 @@
 PREREQUISITE
 -------------------------
-The code in MLIndex.py is written/developed in python3.7 . 
+The code in MLIndex.py is written/developed in python3.7 . (Python 3 and above is mandatory)
+Packages required : nltk, sklearn, pandas ,numpy
+Removal of Stopwords and Lemmatization : Download the nltk.download()
 
 SMS Spam Collection v.1
 -------------------------
