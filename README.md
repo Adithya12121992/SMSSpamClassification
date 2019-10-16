@@ -25,11 +25,11 @@ There is one collection:
 
 The files contain one message per line. Each line consists of two columns: one with label (ham or spam) and other with the sample SMS text. Below are some examples:
 
-ham	Go until jurong point, crazy.. Available only in bugis n great world la e buffet... Cine there got amore wat...<br/>
-ham	Ok lar... Joking wif u oni...<br/>
-spam	Free entry in 2 a wkly comp to win FA Cup final tkts 21st May 2005. Text FA to 87121 to receive entry<br/> question(std txt rate)T&C's apply 08452810075over18's<br/>
-ham	U dun say so early hor... U c already then say...<br/>
-ham	Nah I don't think he goes to usf, he lives around here though<br/>
+ham	  Go until jurong point, crazy.. Available only in bugis n great world la e buffet... Cine there got amore wat...<br/>
+ham	  Ok lar... Joking wif u oni...<br/>
+spam  Free entry in 2 a wkly comp to win FA Cup final tkts 21st May 2005. Text FA to 87121 to receive entry<br/> question(std txt rate)T&C's apply 08452810075over18's<br/>
+ham	  U dun say so early hor... U c already then say...<br/>
+ham	  Nah I don't think he goes to usf, he lives around here though<br/>
 
 Note: messages are not sorted in any order.
 
