@@ -76,6 +76,7 @@ def tokenize(lemmatized_words):
             words.append(w)
             
     words = nltk.FreqDist(words)
+    # print('Most common words: {}'.format(words.most_common(100)))
     return words
 
 # Finding the features
@@ -83,7 +84,7 @@ def find_features(message):
     words = word_tokenize(message)
     features = {}
     for word in most_common:
-        features[word] = (word in words)
+        features[word] = (word in words)  
     return features
 
 # Classifier for the Naive Bayes 
@@ -115,7 +116,10 @@ def LRClassification(training,testing):
     
 # load the dataset of SMS messages
 # opening a file handler for reading a csv file contents into the memory for processing 
-filehandler = pandas.read_csv('SMSSPamCollection',sep="\t", header=None, encoding='utf-8')
+
+
+# For the Training Data 
+filehandler = pandas.read_csv('trainingData',sep="\t", header=None, encoding='utf-8')
 classes = filehandler[0]
 XEncoder = LabelEncoder()
 YEncoder = XEncoder.fit_transform(classes)
@@ -132,16 +136,48 @@ most_common = list(tokenized_words.keys())[:3000]
 # call find features function
 # features_list = find_feature_set(most_common,lemmatized_messages)
 features_list = find_features(lemmatized_messages[0])
-# print(features_list)
 
 # Prepare the data for training and testing the classifier
 processedMessages = zip(lemmatized_messages, YEncoder)
 seed = 1
 numpy.random.seed = seed
-featuresets = [(find_features(text), label) for (text, label) in processedMessages]
-training, testing = model_selection.train_test_split(featuresets, test_size = 0.25, random_state=seed)
+featuresets_training = [(find_features(text), label) for (text, label) in processedMessages]
+# print(processedMessages)
+
+# For the Testing Data 
+filehandler = pandas.read_csv('testingData',sep="\t", header=None, encoding='utf-8')
+classes = filehandler[0]
+XEncoder = LabelEncoder()
+YEncoder = XEncoder.fit_transform(classes)
+text_messages = filehandler[1]
+
+# Calling a function for the Data Cleanse
+cleansed_messages = data_cleanse(text_messages)
+# Calling a function for the Stop-words and Lemmatization
+lemmatized_messages = stop_lemmatize(cleansed_messages)
+# Tokenize words
+tokenized_words = tokenize(lemmatized_messages)
+# Get the 2500 most common words
+most_common = list(tokenized_words.keys())[:3000]
+# call find features function
+# features_list = find_feature_set(most_common,lemmatized_messages)
+features_list = find_features(lemmatized_messages[0])
+
+# Prepare the data for training and testing the classifier
+processedMessages = zip(lemmatized_messages, YEncoder)
+seed = 1
+numpy.random.seed = seed
+featuresets_testing = [(find_features(text), label) for (text, label) in processedMessages]
+
+training = featuresets_training
+testing = featuresets_testing
+
+# training, testing = model_selection.train_test_split(featuresets, test_size = 0.25, random_state=seed)
+# training, testing = model_selection.train_test_split(featuresets, test_size = 0.25, random_state=1)
 print("Training Dataset: "+str(len(training)))
-print("Testing Dataset:"+str(len(testing)))
+
+print("Testing Dataset:  "+str(len(testing)))
+
 
 # Call classifier for NB
 NBClassifier(training , testing)
